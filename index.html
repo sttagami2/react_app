@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>React</title>
 
   <!-- Reactを使用する場合に定義する必要がある -->
@@ -10,16 +9,32 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <!-- Reactを使用する場合に定義する必要がある -->
 
+  <style>
+    #root {
+      cursor: pointer;
+      font-size: 20px;
+      background-color: lightblue;
+      padding: 1px 20px;
+    }
+  </style>
+
 </head>
 <body>
   <h1>React</h1>
-  <div id="root">wait...</div>
+  <div id="root" onclick="doCount();">wait...</div>
 
   <script>
+    let counter = 0;
     let dom = document.querySelector('#root');
-    let element = React.createElement (
-      'p', {}, 'Hello React!'
-    );
+    doCount();
+
+    function doCount() {
+      counter++;
+      let element = React.createElement (
+        'p', {}, "count: " + counter
+      );
+      ReactDOM.render(element, dom);
+    }
     ReactDom.render(element, dom);
   </script>
 </body>
