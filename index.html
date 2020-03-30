@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React</title>
+
+  <!-- Reactを使用する場合に定義する必要がある -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- Reactを使用する場合に定義する必要がある -->
+
+</head>
+<body>
+  <h1>React</h1>
+  <div id="root">wait...</div>
+
+  <script>
+    let dom = document.querySelector('#root');
+    let element = React.createElement (
+      'p', {}, 'Hello React!'
+    );
+    ReactDom.render(element, dom);
+  </script>
+</body>
+</html>
