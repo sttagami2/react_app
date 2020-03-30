@@ -20,20 +20,26 @@
     const p = {
       fontSize: "20pt",
       padding: "10px",
+      backgroundColor: "blue",
+      color: "white",
+      cursor: "pointer"
     };
 
     var counter = 0;
 
-    // setIntervalは一定間隔で処理を実行するもの
-    setInterval(() => {
+    let doAction = (event) => {
       counter++;
-      let element = (
+      let el = (
         <div>
-          <p style={p}>count: {counter}</p>
+          <p onClick={doAction} style={p}>
+            count: {counter}  
+          </p>
         </div>
       );
-      ReactDOM.render(element, dom);
-    }, 1000);
+      ReactDOM.render(el, dom);
+    };
+
+    doAction();
   </script>
 </body>
 </html>
