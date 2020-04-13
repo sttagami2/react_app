@@ -17,29 +17,30 @@
   <script type="text/babel">
     let dom = document.querySelector('#root');
 
-    const p = {
+    const msg1 = {
       fontSize: "20pt",
       padding: "10px",
-      backgroundColor: "blue",
-      color: "white",
-      cursor: "pointer"
+      border: "double 5px magenta"
     };
 
-    var counter = 0;
-
-    let doAction = (event) => {
-      counter++;
-      let el = (
-        <div>
-          <p onClick={doAction} style={p}>
-            count: {counter}  
-          </p>
-        </div>
-      );
-      ReactDOM.render(el, dom);
+    const msg2 = {
+      fontSize: "16pt",
+      fontWeight: "bold",
+      padding: "10px",
+      backgroundColor: "cyan"
     };
 
-    doAction();
+    function Welcome(props) {
+      return <p style={props.style}>Hello, {props.name}!!</p>;
+    }
+
+    let el = (
+      <div>
+        <Welcome name="Taro" style={msg1} />
+        <Welcome name="Hanako" style={msg2} />
+      </div>
+    );
+    ReactDOM.render(el, dom);
   </script>
 </body>
 </html>
