@@ -17,29 +17,32 @@
   <script type="text/babel">
     let dom = document.querySelector('#root');
 
-    const p = {
+    const msg = {
       fontSize: "20pt",
+      fontWeight: "bold",
       padding: "10px",
-      backgroundColor: "blue",
-      color: "white",
-      cursor: "pointer"
+      border: "solid 5px yellow"
     };
 
-    var counter = 0;
+    // コンポーネントのクラス 書き方を覚えること！
+    class Hello extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      
+      render() {
+        return <p style={msg}>Hello!!</p>
+      }
+    }
+    // コンポーネントのクラス 書き方を覚えること！
 
-    let doAction = (event) => {
-      counter++;
-      let el = (
-        <div>
-          <p onClick={doAction} style={p}>
-            count: {counter}  
-          </p>
-        </div>
-      );
-      ReactDOM.render(el, dom);
-    };
 
-    doAction();
+    let el = (
+      <div>
+        <Hello />
+      </div>
+    );
+    ReactDOM.render(el, dom);
   </script>
 </body>
 </html>
