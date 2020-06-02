@@ -26,4 +26,4 @@ function App() {
   }
 }
 
-export default App;
+export default App;         //他ファイルでこのファイルをインポートするのに必要な記述
