@@ -1,45 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
+import './App.css';
 
 class App extends Component {
+  msgStyle = {
+    fontSize: "24pt",
+    color: "#900",
+    margin: "20px 0px",
+    padding: "5px",
+    borderBottom: "2px solid #900"
+  }
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      msg: "Hello Component.",
+    };
+  }
+
   render() {
     return <div>
       <h1>React</h1>
-      <Rect x="50" y="50" w="150" h="150" c="cyan" />
-      <Rect x="150" y="100" w="150" h="150" c="magenta" />
-      <Rect x="100" y="150" w="150" h="150" c="black" />
+      <p style={this.msgStyle}>{this.state.msg}</p>
+      <p style={this.msgStyle}>{this.props.msg}</p>
     </div>;
   }
 }
 
-class Rect extends Component {
-  x = 0;
-  y = 0;
-  width = 0;
-  height = 0;
-  color = "white";
-  style = {};
-
-  constructor(props) {
-    super(props);
-    this.x = props.x;
-    this.y = props.y;
-    this.width = props.w;
-    this.height = props.h;
-    this.color = props.c;
-    this.style = {
-      backgroundColor:this.color,
-      position: "absolute",
-      left:this.x + "px",
-      top:this.y + "px",
-      width:this.width + "px",
-      height:this.height + "px"
-    }
-  }
-
-  render() {
-    return <div style={this.style}></div>
-  }
-}
-
-export default App;         //他ファイルでこのファイルをインポートするのに必要な記述
+export default App;
